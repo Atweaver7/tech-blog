@@ -46,13 +46,13 @@ router.get('/login', (req, res) => {
 });
 
 
-
+// get route for signup form
 router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
 
-
+// get post comments
 router.get('/posts-comments', (req, res) => {
     Post.findOne({
             where: {
@@ -90,6 +90,8 @@ router.get('/posts-comments', (req, res) => {
             res.status(500).json(err);
         });
 });
+
+// get post by ID:
 router.get('/post/:id', (req, res) => {
     Post.findOne({
             where: {
@@ -123,14 +125,10 @@ router.get('/post/:id', (req, res) => {
             const post = dbPostData.get({ plain: true });
             console.log(post);
             res.render('single-post', { post, loggedIn: req.session.loggedIn });
-
-
         })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
 });
-
-
 module.exports = router;
