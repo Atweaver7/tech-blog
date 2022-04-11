@@ -1,7 +1,6 @@
 const { Post, User, Comment, Vote } = require('../../models');
 const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
-const { Post, User, Comment, Vote} = require('../../models')
 const router = require('express').Router();
 
 
@@ -67,4 +66,4 @@ router.get('/:id', (req,res) => {
           });
  
 
-module.exports = router;
+          module.exports = router;
